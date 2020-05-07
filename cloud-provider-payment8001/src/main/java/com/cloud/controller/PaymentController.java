@@ -46,6 +46,11 @@ public class PaymentController {
         return payment != null ? new CommonResult(200, "查询数据库成功,serverPort:" + serverPort, payment) : new CommonResult(444, "查询数据库失败" + id, null);
     }
 
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentPort() {
+        return serverPort;
+    }
+
     @GetMapping("/payment/discovery")
     public Object discovery(){
         List<String> services = discoveryClient.getServices();
