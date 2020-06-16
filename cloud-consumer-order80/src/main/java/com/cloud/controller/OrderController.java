@@ -48,4 +48,9 @@ public class OrderController {
         return forEntity.getStatusCode().is2xxSuccessful() ? forEntity.getBody():new CommonResult<>(444,"操作失败");
     }
 
+    @GetMapping("/consumer/payment/zipkin")
+    public String getPaymentZipkin(){
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin", String.class);
+    }
+
 }
